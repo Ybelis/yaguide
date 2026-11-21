@@ -2,7 +2,7 @@
 
 Guide français / anglais pour le monde Minecraft Java **26.3** de Yann et Guigui, seed **YoGui**.
 
-**Site : https://ybelis.github.io/yogui-guide/** · **Dépôt : https://github.com/Ybelis/yogui-guide**
+**Site : https://ybelis.github.io/yaguide/** · **Dépôt : https://github.com/Ybelis/yaguide**
 
 Le site propose une recherche bilingue qui ignore les accents, des filtres par type et par datapack, des favoris enregistrés dans le navigateur, des liens partageables vers chaque fiche et un affichage adapté au téléphone. Les recettes ont une grille de fabrication et les fiches relient objets, enchantements, créatures, structures et butin.
 
@@ -12,10 +12,10 @@ Le bouton soleil/lune permet de choisir un thème clair ou sombre, avec des coul
 
 Le dépôt GitHub contient directement tous les fichiers du site et son workflow de publication dans `.github/`. Les modifications envoyées sur `main` publient automatiquement le guide. Les instructions ci-dessous servent à publier votre propre copie.
 
-1. Extraire `YaGuiDe.zip`. **Le contenu du ZIP va à la racine du dépôt** : `index.html`, `app.js`, `styles.css`, `themes.css`, `search-worker.js`, `assets/`, `data/`, `.nojekyll` et `.github/`. Ne pas ajouter un dossier intermédiaire `yogui-guide/` et ne pas envoyer le ZIP lui-même sur Pages.
-2. Créer un dépôt GitHub, par exemple `yogui-guide`, et y envoyer ces fichiers sur la branche **main**. Il y a plusieurs milliers d’images : utiliser Git ou GitHub Desktop pour transférer le dossier complet. Vérifier que le dossier caché `.github/` est inclus.
+1. Extraire `YaGuiDe.zip`. **Le contenu du ZIP va à la racine du dépôt** : `index.html`, `app.js`, `styles.css`, `themes.css`, `search-worker.js`, `assets/`, `data/`, `.nojekyll` et `.github/`. Ne pas ajouter un dossier intermédiaire `yaguide/` et ne pas envoyer le ZIP lui-même sur Pages.
+2. Créer un dépôt GitHub, par exemple `yaguide`, et y envoyer ces fichiers sur la branche **main**. Il y a plusieurs milliers d’images : utiliser Git ou GitHub Desktop pour transférer le dossier complet. Vérifier que le dossier caché `.github/` est inclus.
 3. Dans le dépôt, ouvrir **Settings → Pages → Build and deployment → Source → GitHub Actions**.
-4. Dans **Actions**, lancer **Publier YaGuiDe → Run workflow** si le déploiement n’a pas démarré automatiquement. Une coche verte fournit l’adresse du site, normalement `https://VOTRE-PSEUDO.github.io/yogui-guide/`.
+4. Dans **Actions**, lancer **Publier YaGuiDe → Run workflow** si le déploiement n’a pas démarré automatiquement. Une coche verte fournit l’adresse du site, normalement `https://VOTRE-PSEUDO.github.io/yaguide/`.
 
 Le workflow est fourni. Aucun token personnel, compilation, domaine ou hébergement payant n’est nécessaire pour ce site. Les chemins sont relatifs : un dépôt portant un autre nom fonctionne aussi. Avec un dépôt privé, vérifier que l’offre GitHub permet GitHub Pages.
 
@@ -60,7 +60,7 @@ Manrope et Lora sont distribuées sous licence SIL Open Font License, fournie da
 
 **YaGuiDe** is a French / English fan guide for Yann and Guigui’s Minecraft Java 26.3 world. It includes bilingual search, pack and category filters, local bookmarks, shareable entry links, crafting grids, enchantment descriptions, structures, creatures and loot. The interface works on desktop and mobile.
 
-To publish it, extract the archive **into the repository root**, including `.github/`, and push to **main**. Select **Settings → Pages → Source → GitHub Actions**. Run the included **Publier YaGuiDe** workflow if needed. The site works at a project URL such as `https://YOUR-NAME.github.io/yogui-guide/` without changing its paths.
+To publish it, extract the archive **into the repository root**, including `.github/`, and push to **main**. Select **Settings → Pages → Source → GitHub Actions**. Run the included **Publier YaGuiDe** workflow if needed. The site works at a project URL such as `https://YOUR-NAME.github.io/yaguide/` without changing its paths.
 
 For a local preview, run `python -m http.server 8790 --bind 127.0.0.1` inside the extracted folder and open `http://127.0.0.1:8790/`.
 
