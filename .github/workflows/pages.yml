@@ -5,21 +5,15 @@ on:
     branches: [main]
   workflow_dispatch:
 
-permissions:
-  actions: read
-  contents: read
-  pages: write
-  id-token: write
-
 concurrency:
   group: pages
   cancel-in-progress: true
 
 jobs:
-  deploy:
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
+  build:
+    permissions:
+      contents: read
+      pages: read
     runs-on: ubuntu-latest
     steps:
       - name: Récupérer le site
@@ -27,21 +21,19 @@ jobs:
       - name: Configurer GitHub Pages
         uses: actions/configure-pages@v5
       - name: Préparer le site statique
-        uses: actions/upload-pages-artifact@v4
+        uses: actions/upload-pages-artifact@v5
         with:
           path: .
-      - name: Attendre la disponibilité de l’archive
-        env:
-          GH_TOKEN: ${{ github.token }}
-        run: |
-          for attempt in {1..12}; do
-            if gh api "repos/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID/artifacts?name=github-pages" --jq '.total_count' | grep -Eq '^[1-9][0-9]*$'; then
-              exit 0
-            fi
-            sleep 3
-          done
-          echo "::error::L’archive GitHub Pages n’est pas encore disponible."
-          exit 1
+  deploy:
+    needs: build
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    steps:
       - name: Publier
         id: deployment
-        uses: actions/deploy-pages@v4
+        uses: actions/deploy-pages@v5
