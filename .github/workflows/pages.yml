@@ -6,6 +6,7 @@ on:
   workflow_dispatch:
 
 permissions:
+  actions: read
   contents: read
   pages: write
   id-token: write
@@ -29,6 +30,18 @@ jobs:
         uses: actions/upload-pages-artifact@v4
         with:
           path: .
+      - name: Attendre la disponibilité de l’archive
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          for attempt in {1..12}; do
+            if gh api "repos/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID/artifacts?name=github-pages" --jq '.total_count' | grep -Eq '^[1-9][0-9]*$'; then
+              exit 0
+            fi
+            sleep 3
+          done
+          echo "::error::L’archive GitHub Pages n’est pas encore disponible."
+          exit 1
       - name: Publier
         id: deployment
         uses: actions/deploy-pages@v4
