@@ -1,4 +1,4 @@
-name: Publier le carnet YoGui
+name: Publier YaGuiDe
 
 on:
   push:
