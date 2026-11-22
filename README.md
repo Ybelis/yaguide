@@ -35,14 +35,14 @@ Puis ouvrir `http://127.0.0.1:8790/`. Arrêter avec `Ctrl+C`.
 
 ## Contenu et lecture des données
 
-Le corpus vient des **versions exactes des packs du monde préparé le 8 novembre 2026**, avec les correctifs YaGui et Timber. `data/manifest.json` contient les versions, empreintes et totaux ; la page « À propos » explique le périmètre.
+Le catalogue est basé sur l’instantané du 8 novembre 2026 et actualisé le 22 novembre pour [Farstep](https://ybelis.github.io/yaguide/#view=pack&pack=waystones&kind=recipe) et [l’atelier de lave YaGui](https://ybelis.github.io/yaguide/#view=pack&pack=yagui-lava&kind=recipe). Dans une grille de fabrication, un ingrédient souligné dans la liste ou marqué dans la grille ouvre sa propre recette. Les recettes vanilla de référence proviennent de Java 26.3.
 
 - Les noms d’origine restent visibles, y compris lorsqu’un objet n’a pas de traduction officielle. Les descriptions et l’interface existent en français et en anglais.
 - Les objets portant des composants différents sont conservés comme variantes : plusieurs fiches peuvent donc partager le même nom.
 - Les pièces de structures sont distinctes des lieux complets. Un modèle peut servir à plusieurs bâtiments, et tous les monstres ou coffres possibles ne sont pas garantis à chaque génération.
 - Les références à des objets ou tables du jeu de base complètent les liens ; elles ne sont pas comptées comme du contenu ajouté.
 - Les poids des tables de butin sont relatifs à leur tirage. Ils ne sont pas des probabilités globales de drop. Les conditions et tables imbriquées restent visibles.
-- Le Dreaming Realm est documenté comme **désactivé** et masqué par défaut. Les rares définitions techniques sans rencontre prouvée restent accessibles par recherche.
+- Day Counter et The Dreaming Realm ont été retirés du catalogue. Les fiches techniques restent accessibles par recherche.
 - Les descriptions de comportements s’appuient sur les données et les notices disponibles. L’ensemble des constructions et combats n’a pas été testé en jeu. Une référence orpheline n’est pas remplacée par une supposition.
 - Le catalogue est un **instantané** : il ne lit pas le serveur AMP en direct. Les 915 fichiers de recettes du correctif JEI sont eux aussi un export, sans synchronisation automatique. Si la sélection de packs change, il faut actualiser le catalogue et cet export.
 
@@ -64,4 +64,4 @@ To publish it, extract the archive **into the repository root**, including `.git
 
 For a local preview, run `python -m http.server 8790 --bind 127.0.0.1` inside the extracted folder and open `http://127.0.0.1:8790/`.
 
-The catalogue documents the exact pack snapshot prepared on **November 8, 2026**, including world patches. It is not a live server connection. Item component variants and structure pieces are listed separately; base-game references are excluded from added-content totals. Loot weights are relative to a roll, not overall drop percentages. The Dreaming Realm is disabled in this world. Every possible structure and fight has not been play-tested. Original item names are retained where there is no official translation. Author credits and version details are available in each pack entry.
+The catalogue covers the November 8 snapshot with a November 22 update for Farstep and the YaGui Lava Workshop. Linked ingredients open their own Minecraft Java 26.3 recipe. It is not a live server connection. Item component variants and structure pieces are listed separately; base-game references are excluded from added-content totals. Loot weights are relative to a roll, not overall drop percentages.  Every possible structure and fight has not been play-tested. Original item names are retained where there is no official translation. Author credits and version details are available in each pack entry.
